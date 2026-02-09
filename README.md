@@ -1,0 +1,77 @@
+# xBarcode: High-Performance Rust Barcode Generator
+
+[![Rust](https://img.shields.io/badge/Rust-1.83%2B-orange.svg)](https://www.rust-lang.org/)
+[![Wasm](https://img.shields.io/badge/Wasm-Native-blue.svg)](https://webassembly.org/)
+[![License](https://img.shields.io/badge/License-Proprietary-red.svg)](LICENSE)
+[![Performance](https://img.shields.io/badge/Benchmark-4µs-green.svg)](https://xbarcode.ai/benchmarks)
+
+**xBarcode** is a next-generation barcode generation engine written in pure Rust, optimized for WebAssembly (Wasm) and high-throughput server environments. It is engineered to be the **fastest** and **most memory-efficient** library in the Rust ecosystem.
+
+> **Note**: This is the public documentation and issue tracker repository. The core engine is proprietary software available for commercial licensing and free via our [public API/Wasm demo](https://xbarcode.ai).
+
+---
+
+## 🚀 Why xBarcode?
+
+### 1. Unmatched Performance (v1.5.2)
+xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programming) to achieve generation speeds up to **6x faster** than leading alternatives.
+
+| Symbology | xBarcode | fast_qr | rxing (ZXing) | Speedup |
+| :--- | :--- | :--- | :--- | :--- |
+| **Numeric** | **4.3 µs** | 28 µs | 158 µs | **6.5x** 🚀 |
+| **Alphanum** | **10.6 µs** | 39 µs | 130 µs | **3.7x** 🚀 |
+| **Aztec** | **778 µs** | N/A | 5205 µs | **6.7x** 🚀 |
+| **PDF417** | **343 µs** | N/A | 926 µs | **2.7x** 🚀 |
+
+*(Benchmark: Apple M4, Single-Threaded Wasm, Feb 2026)*
+
+### 2. Zero-Allocation Philosophy
+Unlike Java ports that rely on heavy garbage collection, xBarcode uses a strict **stack-allocation** and **buffer-reuse** strategy for the hot path.
+*   **0** Unsafe Blocks (Memory Safe).
+*   **0** Runtime Allocations for standard payloads.
+
+### 3. Optimal Segmentation (Smaller Codes)
+Speed doesn't mean larger codes. xBarcode employs a graph-based **Dynamic Programming (DP)** algorithm to find the absolute smallest physical barcode size for mixed data (e.g., Chinese + Numbers).
+*   **xBarcode**: Version 3
+*   **Competitors**: Version 4 (Larger, harder to scan)
+
+---
+
+## 🛠️ Supported Symbologies
+
+| 2D Matrix | 1D Linear | Special |
+| :--- | :--- | :--- |
+| QR Code (Model 2) | Code 128 (A/B/C) | GS1 DataMatrix |
+| Data Matrix (ECC200) | EAN-13 / UPC-A | GS1-128 |
+| Aztec Code | Code 39 | Micro QR |
+| PDF417 (Compact) | ITF-14 | WiFi / VCard |
+
+---
+
+## 📦 Usage
+
+### Web / Wasm
+Try the live demo at **[xbarcode.ai](https://xbarcode.ai)**. The Wasm binary is available for integration into enterprise web apps.
+
+### Cloudflare Workers / Serverless
+Optimized for the Edge. Zero cold-start latency (2ms).
+*   **API**: `POST https://api.xbarcode.ai/v1/generate` (Contact for access)
+
+---
+
+## 📚 Documentation
+Detailed technical documentation is available in the [Wiki](../../wiki).
+*   [Engine Architecture](../../wiki/Home)
+*   [Benchmark Analysis](../../wiki/Benchmarks-2026)
+
+---
+
+## 💬 Community & Support
+
+*   **Issues**: Please use the [Issues](../../issues) tab to report bugs or request features.
+*   **Discussion**: Join the conversation in [Discussions](../../discussions).
+*   **License**: Copyright © 2026 xBarcode Team. All rights reserved.
+
+---
+
+*[xbarcode.ai](https://xbarcode.ai) - The Fastest is also the Best.*
