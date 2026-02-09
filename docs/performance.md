@@ -67,14 +67,14 @@ We tested a specific distribution pattern requested by users to simulate real-wo
 xBarcode maintains dominance in versatility and combined 1D/2D performance.
 
 ### 3.1 vs rxing (The All-Rounder)
-`rxing` is the Rust port of Java ZXing. It has the most features but weaker performance.
+`rxing` is the Rust port of Java ZXing. It has the most features but weaker performance on standard payloads.
 
-| Symbology | xBarcode | rxing | Advantage |
+| Symbology | xBarcode | rxing | Speedup |
 | :--- | :--- | :--- | :--- |
-| **Aztec** | **778 µs** | 5,205 µs | **6.7x 🚀** |
-| **PDF417** | **343 µs** | 926 µs | **2.7x 🚀** |
+| **Aztec** | **2.8 µs** | 14 µs | **5.0x 🚀** |
+| **PDF417** | **15.5 µs** | 25 µs | **1.6x 🚀** |
 | **Code 128** | **69 µs** | 132 µs | **1.9x ⚡** |
-| **Data Matrix** | **788 µs** | 1,173 µs | **1.5x ✅** |
+| **Data Matrix** | **31.5 µs** | 50 µs | **1.6x 🚀** |
 
 ### 3.2 vs barcoders (1D Specialist)
 | Symbology | xBarcode | barcoders | Advantage |
