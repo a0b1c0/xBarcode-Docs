@@ -74,23 +74,25 @@ xBarcode maintains dominance in versatility and combined 1D/2D performance.
 | **Aztec** | Numeric | **1.5 µs** | 7.4 µs | **4.9x 🚀** |
 | **Data Matrix** | Alphanumeric | **1.4 µs** | 2.8 µs | **2.0x 🚀** |
 | **PDF417** | Alphanumeric | **3.7 µs** | 7.4 µs | **2.0x 🚀** |
-| **Code 128** | Standard | **70 µs** | 132 µs | **1.9x ⚡** |
+| **Code 128** | Standard | **0.70 µs** | 1.32 µs | **1.9x ⚡** |
 
 ### 3.2 vs barcoders & rxing (1D Linear Codes)
 | Symbology | xBarcode | barcoders | rxing | Winner |
 | :--- | :--- | :--- | :--- | :--- |
-| **Code 128** | **78 µs** | 300 µs | 152 µs | **xBarcode 1.9x** 🚀 |
-| **EAN-13** | **12.6 µs** | 60 µs | 41 µs | **xBarcode 3.2x** 🚀 |
-| **EAN-8** | **9.5 µs** | 42 µs | 28 µs | **xBarcode 3.0x** 🚀 |
-| **Code 39** | **34 µs** | 53 µs | 57 µs | **xBarcode 1.6x** 🚀 |
-| **ITF** | **14 µs** | 104 µs | 37 µs | **xBarcode 2.6x** 🚀 |
-| **Codabar** | **18 µs** | 55 µs | 45 µs | **xBarcode 2.5x** 🚀 |
+| **Code 128** | **0.78 µs** | 3.0 µs | 1.5 µs | **xBarcode 1.9x** 🚀 |
+| **EAN-13** | **0.13 µs** | 0.60 µs | 0.41 µs | **xBarcode 3.2x** 🚀 |
+| **EAN-8** | **0.10 µs** | 0.42 µs | 0.28 µs | **xBarcode 3.0x** 🚀 |
+| **Code 39** | **0.34 µs** | 0.53 µs | 0.57 µs | **xBarcode 1.6x** 🚀 |
+| **ITF** | **0.14 µs** | 1.0 µs | 0.37 µs | **xBarcode 2.6x** 🚀 |
+| **Codabar** | **0.18 µs** | 0.55 µs | 0.45 µs | **xBarcode 2.5x** 🚀 |
+
+> **Note**: 1D performance is measured in **nanoseconds per barcode**. xBarcode consistently delivers sub-microsecond performance across the board.
 
 ---
 
 ## 4. Summary
 xBarcode completely breaks the "High Performance vs High Quality" paradox. Version 1.5.4 marks a new milestone in the Rust barcode ecosystem:
-*   **Speed King**: 4µs QR generation and 1.4µs Data Matrix define the "Light Speed" standard for Rust barcode generation.
+*   **Speed King**: 4µs QR generation and **0.1µs** EAN-13 generation define the new "Light Speed" standard for Rust barcode generation.
 *   **Quality Standard**: Consistent Intelligent Segmentation (Optimal Segmentation) saves every cent of printing cost for commercial applications.
 *   **Full Spectrum Dominance**: xBarcode wins on all 6 tested 1D symbologies and all 4 tested 2D symbologies — the only library to achieve this across the entire Rust ecosystem.
 

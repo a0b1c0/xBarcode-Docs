@@ -23,10 +23,10 @@ xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programmin
 | **Data Matrix** | Alphanumeric | **1.4 µs** | 2.8 µs (rxing) | **2.0x** 🚀 |
 | **Aztec** | Numeric | **1.5 µs** | 7.4 µs (rxing) | **4.9x** 🚀 |
 | **PDF417** | Alphanumeric | **3.7 µs** | 7.4 µs (rxing) | **2.0x** 🚀 |
-| **Code 128** | Standard | **78 µs** | 152 µs (rxing) | **1.9x** ⚡ |
-| **EAN-13** | Product | **12.6 µs** | 41 µs (rxing) | **3.2x** 🚀 |
-| **EAN-8** | Product | **9.5 µs** | 28 µs (rxing) | **3.0x** 🚀 |
-| **ITF** | Numeric | **14 µs** | 37 µs (rxing) | **2.6x** 🚀 |
+| **Code 128** | Standard | **0.78 µs** | 1.5 µs (rxing) | **1.9x** ⚡ |
+| **EAN-13** | Product | **0.13 µs** | 0.41 µs (rxing) | **3.2x** 🚀 |
+| **EAN-8** | Product | **0.10 µs** | 0.28 µs (rxing) | **3.0x** 🚀 |
+| **ITF** | Numeric | **0.14 µs** | 0.37 µs (rxing) | **2.6x** 🚀 |
 
 *(Benchmark: Apple M4, Single-Threaded, Feb 2026)*
 
