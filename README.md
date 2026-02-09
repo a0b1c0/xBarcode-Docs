@@ -60,9 +60,9 @@ Optimized for the Edge. Zero cold-start latency (2ms).
 ---
 
 ## 📚 Documentation
-Detailed technical documentation is available in the [Wiki](../../wiki).
-*   [Engine Architecture](../../wiki/Home)
-*   [Benchmark Analysis](../../wiki/Benchmarks-2026)
+Detailed technical documentation is available in the [`docs/`](docs/) directory.
+*   [Engine Architecture](docs/architecture.md)
+*   [Benchmark Analysis](docs/performance.md)
 
 ---
 
