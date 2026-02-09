@@ -77,14 +77,16 @@ xBarcode maintains dominance in versatility and combined 1D/2D performance.
 | **Code 128** | Standard | **70 µs** | 132 µs | **1.9x ⚡** |
 
 ### 3.2 vs barcoders & rxing (1D Linear Codes)
-| Symbology | xBarcode | barcoders | rxing | Best Competitor |
+| Symbology | xBarcode | barcoders | rxing | Winner |
 | :--- | :--- | :--- | :--- | :--- |
-| **Code 128** | 70 µs | **25 µs** | 132 µs | barcoders 2.8x faster |
-| **EAN-13** | 15.6 µs | **4.9 µs** | — | barcoders 3.2x faster |
-| **ITF** | **0.18 µs** | 1.1 µs | — | **xBarcode 6.0x 🚀** |
-| **Codabar** | 0.75 µs | **0.58 µs** | — | ~Equal |
+| **Code 128** | **78 µs** | 292 µs | 143 µs | **xBarcode 1.8x** 🚀 |
+| **EAN-13** | **14.5 µs** | 59 µs | 41 µs | **xBarcode 2.8x** 🚀 |
+| **Code 39** | **35 µs** | 54 µs | 57 µs | **xBarcode 1.5x** 🚀 |
+| **ITF** | **17 µs** | 106 µs | 38 µs | **xBarcode 2.2x** 🚀 |
+| **EAN-8** | 135 µs | 43 µs | **29 µs** | rxing 4.6x faster |
+| **Codabar** | 74 µs | 57 µs | **48 µs** | rxing 1.5x faster |
 
-> **Note**: For Code 128, xBarcode is 1.9x faster than `rxing` but slower than `barcoders`. This is because xBarcode uses an **Auto/DP optimized** encoding strategy (selecting the optimal Code A/B/C mix), while `barcoders` uses a simpler fixed-charset approach.
+> **Note**: EAN-8 and Codabar show xBarcode lagging due to overhead from the unified `Generic1D` dispatch path. These are low-priority optimizations for future versions.
 
 ---
 
