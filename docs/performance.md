@@ -21,7 +21,7 @@ For high-frequency commercial scenarios, we compared **xBarcode (v1.5.2)**, **fa
 | Scenario | Content Example | fast_qr (µs) | xBarcode (µs) | qrcode (µs) | Conclusion |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Mixed Serial** | `ABC123456789` | 29 µs | **4.4 µs** | 160 µs | **xBarcode is 6.6x faster than fast_qr**. The latest engine has been optimized for short strings and mixed encoding. |
-| **Standard URL** | `https://xbarcode...` | **52 µs** | 69 µs | 562 µs | In long text scenarios, `fast_qr` maintains a slight ~25% edge, but xBarcode is in the same magnitude (0.06ms). |
+| **Standard URL**<br>(40-80 chars) | `https://xbarcode...` | **52 µs** | 69 µs | 562 µs | In medium-to-long text scenarios (40-80 chars), `fast_qr` maintains a slight edge, but xBarcode is in the same magnitude (0.06ms). |
 | **Numeric** | `1234567890` | 28 µs | **4.3 µs** | 158 µs | **Crushing Base Overhead**. xBarcode's cold start and short-code efficiency is the **fastest in the Rust ecosystem**. |
 
 ### 2.1 Optimality Check (Product Size)
