@@ -1,28 +1,28 @@
 # Comprehensive Benchmark Analysis Report
-**Date:** 2026-02-08
-**Device:** Apple M-Series (Host Native Benchmark)
-**Version:** xBarcode v1.5.2 (`#da3fbffd`)
+**Date:** 2026-02-09
+**Device:** Apple M4 (Host Native Benchmark)
+**Version:** xBarcode v1.5.4 (`#5b78ab8b`)
 
 ## 1. Core Conclusion: The Perfect Coexistence of Speed AND Quality
 
-The design philosophy of xBarcode in version 1.5.2 maintains the breakthrough from v1.4: **We have increased short-code generation speed by 10x while maintaining our core "smallest size" advantage, comprehensively surpassing the competitor `fast_qr`.**
+The design philosophy of xBarcode in version 1.5.4 maintains the breakthrough from v1.4: **We have increased short-code generation speed by 10x while maintaining our core "smallest size" advantage, comprehensively surpassing the competitor `fast_qr`.**
 
 ### 1.1 Key Findings
-1.  **Dominance in Small/Medium Payloads**: In the most common commercial scenarios—**Serial Numbers, Numeric, Short Text**—xBarcode is **4-6x faster** than `fast_qr` (4.3µs vs 28µs).
-2.  **Extreme Speed for Long Text**: In long URL scenarios, both libraries enter the **50~70µs** range (xBarcode 69µs vs fast_qr 52µs), with only a microsecond-level difference.
+1.  **Dominance in Small/Medium Payloads**: In the most common commercial scenarios—**Serial Numbers, Numeric, Short Text**—xBarcode is **4-7x faster** than `fast_qr` (4.2µs vs 28µs).
+2.  **Extreme Speed for Long Text**: In long URL scenarios, both libraries enter the **50~70µs** range (xBarcode 73µs vs fast_qr 52µs), with only a microsecond-level difference.
 3.  **Optimal Output**: Even with increased speed, we retain the **Dynamic Programming (DP)** algorithm. In complex mixed encoding scenarios (e.g., Chinese/mix), the output size is 1-3 Versions smaller than competitors.
 
 ---
 
 ## 2. Real-World Scenario Deep Dive
 
-For high-frequency commercial scenarios, we compared **xBarcode (v1.5.2)**, **fast_qr**, and **qrcode**.
+For high-frequency commercial scenarios, we compared **xBarcode (v1.5.4)**, **fast_qr**, and **qrcode**.
 
 | Scenario | Content Example | fast_qr (µs) | xBarcode (µs) | qrcode (µs) | Conclusion |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mixed Serial** | `ABC123456789` | 29 µs | **4.4 µs** | 160 µs | **xBarcode is 6.6x faster than fast_qr**. The latest engine has been optimized for short strings and mixed encoding. |
-| **Standard URL**<br>(40-80 chars) | `https://xbarcode...` | **52 µs** | 69 µs | 562 µs | In medium-to-long text scenarios (40-80 chars), `fast_qr` maintains a slight edge, but xBarcode is in the same magnitude (0.06ms). |
-| **Numeric** | `1234567890` | 28 µs | **4.3 µs** | 158 µs | **Crushing Base Overhead**. xBarcode's cold start and short-code efficiency is the **fastest in the Rust ecosystem**. |
+| **Mixed Serial** | `ABC123456789` | 29 µs | **4.6 µs** | 171 µs | **xBarcode is 6.3x faster than fast_qr**. The latest engine has been optimized for short strings and mixed encoding. |
+| **Standard URL**<br>(40-80 chars) | `https://xbarcode...` | **52 µs** | 73 µs | 549 µs | In medium-to-long text scenarios (40-80 chars), `fast_qr` maintains a slight edge, but xBarcode is in the same magnitude (0.07ms). |
+| **Numeric** | `1234567890` | 28 µs | **4.2 µs** | 167 µs | **Crushing Base Overhead**. xBarcode's cold start and short-code efficiency is the **fastest in the Rust ecosystem**. |
 
 ### 2.1 Optimality Check (Product Size)
 Users worry if `fast_qr`'s speed comes at the cost of "generating larger QR codes". We compared the generated Versions (Size) for the scenarios above:
@@ -34,7 +34,7 @@ Users worry if `fast_qr`'s speed comes at the cost of "generating larger QR code
 | **Mixed Kanji** | **V3** | V4 | V6 | **xBarcode wins in complex scenarios** (50% smaller size than rxing). |
 
 **Conclusion:**
-*   **Simple Scenarios**: `xBarcode` v1.5.2 has surpassed `fast_qr` in speed while maintaining equal or better output quality.
+*   **Simple Scenarios**: `xBarcode` v1.5.4 has surpassed `fast_qr` in speed while maintaining equal or better output quality.
 *   **Complex Scenarios**: When involving multi-language/mixed encoding, `xBarcode`'s DP algorithm advantage is maximized—**The Smallest Barcode from the Fastest Engine.**
 
 ### 2.2 Robustness & Compliance Verification
@@ -54,9 +54,9 @@ We tested a specific distribution pattern requested by users to simulate real-wo
 
 | Library | Total Time (50 ops) | Avg Time per QR | Conclusion |
 | :--- | :--- | :--- | :--- |
-| **fast_qr** | 2.94 ms | **58.8 µs** | **Winner**. Dominated by the 45% Long URL segment where it excels. |
-| **xBarcode** | 3.80 ms | 76.0 µs | **Competitive**. Still sub-0.1ms and ~8x faster than baseline. |
-| **qrcode** | 29.94 ms | 598.8 µs | Baseline. |
+| **fast_qr** | 2.87 ms | **57.4 µs** | **Winner**. Dominated by the 45% Long URL segment where it excels. |
+| **xBarcode** | 3.66 ms | 73.1 µs | **Competitive**. Still sub-0.1ms and ~9x faster than baseline. |
+| **qrcode** | 32.30 ms | 645 µs | Baseline. |
 
 **Insight**: As noted in Section 1.1, `fast_qr` maintains a lead in long-text scenarios. Since 90% of this dataset is Medium-to-Long (>30 chars), `fast_qr`'s advantage is expected. xBarcode remains the choice for mixed/short scenarios or where output size (DP) matters.
 
@@ -69,25 +69,29 @@ xBarcode maintains dominance in versatility and combined 1D/2D performance.
 ### 3.1 vs rxing (The All-Rounder)
 `rxing` is the Rust port of Java ZXing. It has the most features but weaker performance on standard payloads.
 
-| Symbology | xBarcode | rxing | Speedup |
-| :--- | :--- | :--- | :--- |
-| **Aztec** | **2.8 µs** | 14 µs | **5.0x 🚀** |
-| **PDF417** | **15.5 µs** | 25 µs | **1.6x 🚀** |
-| **Code 128** | **69 µs** | 132 µs | **1.9x ⚡** |
-| **Data Matrix** | **31.5 µs** | 50 µs | **1.6x 🚀** |
+| Symbology | Input Type | xBarcode | rxing | Speedup |
+| :--- | :--- | :--- | :--- | :--- |
+| **Aztec** | Numeric | **1.5 µs** | 7.4 µs | **4.9x 🚀** |
+| **Data Matrix** | Alphanumeric | **1.4 µs** | 2.8 µs | **2.0x 🚀** |
+| **PDF417** | Alphanumeric | **3.7 µs** | 7.4 µs | **2.0x 🚀** |
+| **Code 128** | Standard | **70 µs** | 132 µs | **1.9x ⚡** |
 
-### 3.2 vs barcoders (1D Specialist)
-| Symbology | xBarcode | barcoders | Advantage |
-| :--- | :--- | :--- | :--- |
-| **ITF** | **17 µs** | 100 µs | **5.9x 🚀** |
-| **EAN-13** | **15 µs** | 56 µs | **3.8x 🚀** |
-| **Code 128** | **70 µs** | 257 µs | **3.7x 🚀** |
+### 3.2 vs barcoders & rxing (1D Linear Codes)
+| Symbology | xBarcode | barcoders | rxing | Best Competitor |
+| :--- | :--- | :--- | :--- | :--- |
+| **Code 128** | 70 µs | **25 µs** | 132 µs | barcoders 2.8x faster |
+| **EAN-13** | 15.6 µs | **4.9 µs** | — | barcoders 3.2x faster |
+| **ITF** | **0.18 µs** | 1.1 µs | — | **xBarcode 6.0x 🚀** |
+| **Codabar** | 0.75 µs | **0.58 µs** | — | ~Equal |
+
+> **Note**: For Code 128, xBarcode is 1.9x faster than `rxing` but slower than `barcoders`. This is because xBarcode uses an **Auto/DP optimized** encoding strategy (selecting the optimal Code A/B/C mix), while `barcoders` uses a simpler fixed-charset approach.
 
 ---
 
 ## 4. Summary
-xBarcode completely breaks the "High Performance vs High Quality" paradox. Version 1.5.2 marks a new milestone in the Rust barcode ecosystem:
-*   **Speed King**: 4µs extreme performance defines the new "Light Speed" standard for Rust short-code generation.
+xBarcode completely breaks the "High Performance vs High Quality" paradox. Version 1.5.4 marks a new milestone in the Rust barcode ecosystem:
+*   **Speed King**: 4µs QR generation and 1.4µs Data Matrix define the "Light Speed" standard for Rust barcode generation.
 *   **Quality Standard**: Consistent Intelligent Segmentation (Optimal Segmentation) saves every cent of printing cost for commercial applications.
+*   **Honest Benchmarks**: 1D linear codes (EAN-13, Code 128) are comparable to or slightly slower than `barcoders`, which uses simpler encoding without Auto/DP optimization. xBarcode trades raw 1D speed for correctness guarantees.
 
 With xBarcode, you no longer have to choose. **The Fastest is also the Best.**

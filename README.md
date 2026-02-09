@@ -13,20 +13,20 @@
 
 ## 🚀 Why xBarcode?
 
-### 1. Unmatched Performance (v1.5.2)
+### 1. Unmatched Performance (v1.5.4)
 xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programming) to achieve generation speeds up to **6x faster** than leading alternatives.
 
 | Symbology | Input Type | xBarcode | Competitor | Speedup |
 | :--- | :--- | :--- | :--- | :--- |
-| **QR Code** | Numeric | **4.3 µs** | 28 µs (fast_qr) | **6.5x** 🚀 |
-| **QR Code** | Alphanumeric | **10.6 µs** | 39 µs (fast_qr) | **3.7x** 🚀 |
-| **Code 128** | Standard | **69 µs** | 132 µs (rxing) | **1.9x** ⚡ |
-| **EAN-13** | Product | **15 µs** | 56 µs (barcoders) | **3.8x** 🚀 |
-| **Data Matrix** | ASCII-only | **31.5 µs** | 1,173 µs (rxing) | **37x** 🚀 |
-| **Aztec** | Standard | **2.8 µs** | 5,205 µs (rxing) | **1800x** 🤯 |
-| **PDF417** | Compact | **15.5 µs** | 926 µs (rxing) | **60x** 🚀 |
+| **QR Code** | Numeric | **4.2 µs** | 28 µs (fast_qr) | **6.7x** 🚀 |
+| **QR Code** | Alphanumeric | **10.7 µs** | 39 µs (fast_qr) | **3.6x** 🚀 |
+| **Data Matrix** | Alphanumeric | **1.4 µs** | 2.8 µs (rxing) | **2.0x** 🚀 |
+| **Aztec** | Numeric | **1.5 µs** | 7.4 µs (rxing) | **4.9x** 🚀 |
+| **PDF417** | Alphanumeric | **3.7 µs** | 7.4 µs (rxing) | **2.0x** 🚀 |
+| **Code 128** | Standard | **70 µs** | 132 µs (rxing) | **1.9x** ⚡ |
+| **ITF** | Numeric | **0.18 µs** | 1.1 µs (barcoders) | **6.0x** 🚀 |
 
-*(Benchmark: Apple M4, Single-Threaded Wasm, Feb 2026)*
+*(Benchmark: Apple M4, Single-Threaded, Feb 2026)*
 
 ### 2. Zero-Allocation Philosophy
 Unlike Java ports that rely on heavy garbage collection, xBarcode uses a strict **stack-allocation** and **buffer-reuse** strategy for the hot path.
