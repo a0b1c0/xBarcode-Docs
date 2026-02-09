@@ -16,12 +16,12 @@
 ### 1. Unmatched Performance (v1.5.2)
 xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programming) to achieve generation speeds up to **6x faster** than leading alternatives.
 
-| Symbology | xBarcode | fast_qr | rxing (ZXing) | Speedup |
-| :--- | :--- | :--- | :--- | :--- |
-| **Numeric** | **4.3 µs** | 28 µs | 158 µs | **6.5x** 🚀 |
-| **Alphanum** | **10.6 µs** | 39 µs | 130 µs | **3.7x** 🚀 |
-| **Aztec** | **778 µs** | N/A | 5205 µs | **6.7x** 🚀 |
-| **PDF417** | **343 µs** | N/A | 926 µs | **2.7x** 🚀 |
+| Symbology | Input Type | xBarcode | fast_qr | rxing (ZXing) | Speedup |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **QR Code** | Numeric | **4.3 µs** | 28 µs | 158 µs | **6.5x** 🚀 |
+| **QR Code** | Alphanumeric | **10.6 µs** | 39 µs | 130 µs | **3.7x** 🚀 |
+| **Aztec** | Mixed Text | **778 µs** | N/A | 5,205 µs | **6.7x** 🚀 |
+| **PDF417** | Compact | **343 µs** | N/A | 926 µs | **2.7x** 🚀 |
 
 *(Benchmark: Apple M4, Single-Threaded Wasm, Feb 2026)*
 
