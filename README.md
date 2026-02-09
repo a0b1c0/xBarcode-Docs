@@ -16,12 +16,15 @@
 ### 1. Unmatched Performance (v1.5.2)
 xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programming) to achieve generation speeds up to **6x faster** than leading alternatives.
 
-| Symbology | Input Type | xBarcode | fast_qr | rxing (ZXing) | Speedup |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **QR Code** | Numeric | **4.3 µs** | 28 µs | 158 µs | **6.5x** 🚀 |
-| **QR Code** | Alphanumeric | **10.6 µs** | 39 µs | 130 µs | **3.7x** 🚀 |
-| **Aztec** | Mixed Text | **778 µs** | N/A | 5,205 µs | **6.7x** 🚀 |
-| **PDF417** | Compact | **343 µs** | N/A | 926 µs | **2.7x** 🚀 |
+| Symbology | Input Type | xBarcode | Competitor | Speedup |
+| :--- | :--- | :--- | :--- | :--- |
+| **QR Code** | Numeric | **4.3 µs** | 28 µs (fast_qr) | **6.5x** 🚀 |
+| **QR Code** | Alphanumeric | **10.6 µs** | 39 µs (fast_qr) | **3.7x** 🚀 |
+| **Code 128** | Standard | **69 µs** | 132 µs (rxing) | **1.9x** ⚡ |
+| **EAN-13** | Product | **15 µs** | 56 µs (barcoders) | **3.8x** 🚀 |
+| **Data Matrix** | ECC200 | **788 µs** | 1,173 µs (rxing) | **1.5x** ✅ |
+| **Aztec** | Mixed Text | **778 µs** | 5,205 µs (rxing) | **6.7x** 🚀 |
+| **PDF417** | Compact | **343 µs** | 926 µs (rxing) | **2.7x** 🚀 |
 
 *(Benchmark: Apple M4, Single-Threaded Wasm, Feb 2026)*
 
