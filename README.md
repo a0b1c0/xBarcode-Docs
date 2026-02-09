@@ -18,7 +18,7 @@ xBarcode utilizes a **Hybrid Architecture** (Fast-Path Mode + Dynamic Programmin
 
 | Symbology | Input Type | xBarcode | Competitor | Speedup |
 | :--- | :--- | :--- | :--- | :--- |
-| **QR Code** | Numeric | **4.2 µs** | 28 µs (fast_qr) | **6.7x** 🚀 |
+| **QR Code** | Numeric | **4.3 µs** | 28 µs (fast_qr) | **6.7x** 🚀 |
 | **QR Code** | Alphanumeric | **10.7 µs** | 39 µs (fast_qr) | **3.6x** 🚀 |
 | **Data Matrix** | Alphanumeric | **1.4 µs** | 2.8 µs (rxing) | **2.0x** 🚀 |
 | **Aztec** | Numeric | **1.5 µs** | 7.4 µs (rxing) | **4.9x** 🚀 |
