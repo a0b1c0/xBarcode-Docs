@@ -10,7 +10,7 @@ xBarcode provides native support for generating Encapsulated PostScript (EPS) fi
 
 Our EPS generator assumes the same high-performance characteristics as the rest of the engine.
 
-*   **Generation Time**: **< 20 microseconds** (0.02ms) per barcode.
+*   **Generation Time**: **< 0.02ms** per barcode.
 *   **Throughput**: > 50,000 EPS files per second on a single core.
 *   **Memory**: Zero-allocation strategy (reuse of internal buffers).
 
