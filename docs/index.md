@@ -15,7 +15,8 @@ Welcome to the official technical documentation for [xBarcode](https://github.co
 
 ## 🧩 Algorithms
 *   [**Data Matrix Optimal Encoding**](./datamatrix.md): How we achieve minimal symbol size.
-*   [**MaxiCode Specification**](./maxicode.md): Technical details for MaxiCode support.
+*   **[MaxiCode Specification](./maxicode.md)**: Technical details for MaxiCode support.
+*   **[EPS Generation (New)](./eps.md)**: Vector-perfect output for professional print.
 
 ## ✅ Testing
 *   [**Test Defaults**](./TEST_DEFAULTS.md): Standard test configurations and datasets.
